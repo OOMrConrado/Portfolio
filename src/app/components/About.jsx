@@ -1,7 +1,7 @@
-import { about } from "../../data/data";
+import { about, socials } from "../../data/data";
 
 export default function About() {
-    // Función para convertir el texto con CoderLux en un elemento con link
+    // Function to convert text with CoderLux into a link element
     const renderAboutText = () => {
         const text = about.about;
         const coderLuxIndex = text.indexOf("CoderLux");
@@ -35,12 +35,21 @@ export default function About() {
                         {renderAboutText()}
                     </p>
                     <p className="text-base text-base-content/80">
-                        Si tienes alguna pregunta o te gustaría colaborar, no dudes en contactarme por{" "}
+                        ¿Tienes alguna pregunta o quieres colaborar? Contáctame por{" "}
                         <a
                             href={`mailto:${about.email}`}
                             className="font-bold underline hover:text-blue-400 transition-colors cursor-pointer"
                         >
                             email
+                        </a>
+                        {" "}o{" "}
+                        <a
+                            href={socials.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold underline hover:text-blue-400 transition-colors cursor-pointer"
+                        >
+                            LinkedIn
                         </a>
                         . Siempre estoy abierto a nuevas oportunidades.
                     </p>
