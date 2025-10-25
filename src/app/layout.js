@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { seo } from "@/data/data";
 import Footer from "./components/Footer";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata = {
     title: `${seo.title}`,
@@ -32,6 +33,7 @@ export default function RootLayout({ children }) {
                     {children}
                     <Footer />
                 </div>
+                <Analytics />
             </body>
         </html>
     );
