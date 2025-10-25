@@ -2,7 +2,7 @@ import Marquee from "./Marquee";
 import { skills } from "@/data/data";
 
 export default function TechLists() {
-    // Dividir skills en 2 filas
+    // Split skills into 2 rows
     const midPoint = Math.ceil(skills.length / 2);
     const firstRow = skills.slice(0, midPoint);
     const secondRow = skills.slice(midPoint);
@@ -36,7 +36,7 @@ export default function TechLists() {
         <div className="mt-10">
             <h2 className="text-xl font-medium before:content-['>'] before:mr-1">Tech Stack</h2>
             <div className="flex flex-col gap-4 mt-4">
-                {/* Primera fila */}
+                {/* First row */}
                 <Marquee duration="30s">
                     <div className="flex gap-2">
                         {firstRow.map((skill, index) => (
@@ -45,7 +45,7 @@ export default function TechLists() {
                     </div>
                 </Marquee>
 
-                {/* Segunda fila */}
+                {/* Second row */}
                 <Marquee duration="35s">
                     <div className="flex gap-2">
                         {secondRow.map((skill, index) => (
