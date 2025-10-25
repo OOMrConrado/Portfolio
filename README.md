@@ -18,6 +18,9 @@ Personal portfolio website built with Next.js, showcasing projects, experience, 
 - SEO optimized
 - Contact form integration
 - Project showcase
+- Blog with category filtering
+- Dynamic blog posts with QA/Scrum/Testing content
+- Vercel Analytics integration
 
 ## Setup
 
