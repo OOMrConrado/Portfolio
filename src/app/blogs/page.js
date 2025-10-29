@@ -30,10 +30,10 @@ export default function BlogPage() {
                 {/* Header */}
                 <div className="flex flex-col gap-3">
                     <h1 className="text-2xl md:text-3xl font-bold before:content-['>'] before:mr-2 text-base-content">
-                        Blog
+                        Blog 
                     </h1>
                     <p className="text-base text-base-content/70">
-                        Artículos sobre QA, Testing, Metodologías Ágiles y herramientas de desarrollo
+                        Artículos propios sobre QA, Testing, Metodologías Ágiles, Herramientas de Desarrollo y Proyectos.
                     </p>
                 </div>
 
