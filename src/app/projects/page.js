@@ -1,5 +1,6 @@
 import React from "react";
 import { projects , seo } from "@/data/data";
+import Link from "next/link";
 
 export const metadata = {
     title: `Projects | ${seo.title}`,
@@ -16,12 +17,11 @@ function Projects() {
                 </h1>
                 <div className="flex flex-col gap-2">
                     {projects.pinProjects.map((item, index) => (
-                        <a
+                        <Link
                             href={item.link}
                             key={index}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"
+                            aria-label={`Ver detalles de ${item.title}`}
+                            className="group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-base-content/50 focus:ring-offset-2"
                         >
                             <div className="flex flex-col gap-2 justify-between">
                                 <div className="flex items-center justify-between">
@@ -56,15 +56,14 @@ function Projects() {
                                     ))}
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                     {projects.otherProjects.map((item, index) => (
-                        <a
+                        <Link
                             href={item.link}
                             key={index}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"
+                            aria-label={`Ver detalles de ${item.title}`}
+                            className="group cursor-pointer p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-base-content/50 focus:ring-offset-2"
                         >
                             <div className="flex flex-col gap-2 justify-between">
                                 <div className="flex items-center justify-between">
@@ -99,7 +98,7 @@ function Projects() {
                                     ))}
                                 </div>
                             </div>
-                        </a>
+                        </Link>
                     ))}
                 </div>
             </main>
