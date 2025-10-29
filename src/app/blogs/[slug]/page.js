@@ -1,36 +1,14 @@
+"use client";
 import { blogs } from "../../../data/data";
-import { notFound } from "next/navigation";
+import { notFound, useParams } from "next/navigation";
 import Link from "next/link";
 import { getPostContent } from "../../../data/posts/postContent";
+import { useState, useEffect } from "react";
 
-// Generate static params for all blog slugs
-export async function generateStaticParams() {
-    return blogs.map((blog) => ({
-        slug: blog.slug,
-    }));
-}
-
-// Generate metadata for each post
-export async function generateMetadata({ params }) {
-    const resolvedParams = await params;
-    const blog = blogs.find((b) => b.slug === resolvedParams.slug);
-
-    if (!blog) {
-        return {
-            title: "Post Not Found",
-        };
-    }
-
-    return {
-        title: `${blog.title} | Blog`,
-        description: blog.excerpt,
-        keywords: blog.tags.join(", "),
-    };
-}
-
-export default async function BlogPost({ params }) {
-    const resolvedParams = await params;
-    const blog = blogs.find((b) => b.slug === resolvedParams.slug);
+export default function BlogPost() {
+    const params = useParams();
+    const [selectedImage, setSelectedImage] = useState(null);
+    const blog = blogs.find((b) => b.slug === params.slug);
 
     if (!blog) {
         notFound();
@@ -48,6 +26,23 @@ export default async function BlogPost({ params }) {
 
     // Get the blog post content
     const content = getPostContent(blog.slug);
+
+    // Add click handlers to images after mount
+    useEffect(() => {
+        const images = document.querySelectorAll('.prose img');
+        images.forEach(img => {
+            img.style.cursor = 'pointer';
+            img.addEventListener('click', (e) => {
+                setSelectedImage(e.target.src);
+            });
+        });
+
+        return () => {
+            images.forEach(img => {
+                img.removeEventListener('click', () => {});
+            });
+        };
+    }, [content]);
 
     return (
         <div className="md:w-[800px] w-full mt-5 p-4 pb-16">
@@ -185,6 +180,44 @@ export default async function BlogPost({ params }) {
                     </Link>
                 </div>
             </main>
+
+            {/* Image Modal */}
+            {selectedImage && (
+                <div
+                    className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+                    onClick={() => setSelectedImage(null)}
+                >
+                    <div className="relative max-w-7xl w-full max-h-[95vh] flex items-center justify-center">
+                        {/* Close Button */}
+                        <button
+                            onClick={() => setSelectedImage(null)}
+                            className="absolute top-4 right-4 p-3 bg-base-100/90 hover:bg-base-100 rounded-full transition-all z-10 shadow-lg"
+                            aria-label="Close image"
+                        >
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                className="h-6 w-6 text-base-content"
+                                viewBox="0 0 20 20"
+                                fill="currentColor"
+                            >
+                                <path
+                                    fillRule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clipRule="evenodd"
+                                />
+                            </svg>
+                        </button>
+
+                        {/* Image */}
+                        <img
+                            src={selectedImage}
+                            alt="Expanded view"
+                            className="max-w-full max-h-[90vh] object-contain rounded-lg shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        />
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
