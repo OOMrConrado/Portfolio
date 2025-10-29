@@ -15,19 +15,26 @@ export default function ProjectsList() {
                 </Link>
             </div>
             <div className="flex flex-col gap-2">
-                {projects.pinProjects.map((item, index) => (
+                {projects.pinProjects.slice(0, 3).map((item, index) => (
                     <div
                         key={index}
                         className="group relative p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"
                     >
-                        <div className="flex flex-col gap-2 justify-between">
+                        <div className="flex flex-col gap-2 justify-between pb-10 sm:pb-0">
                             <div className="flex items-center justify-between">
-                                <Link href={item.link} target="_blank" rel="noopener noreferrer">
+                                <Link
+                                    href={item.link}
+                                    className="focus:outline-none focus:ring-2 focus:ring-base-content/50 focus:ring-offset-2 rounded"
+                                >
                                     <h3 className="font-semibold text-lg hover:underline">
                                         {item.title}
                                     </h3>
                                 </Link>
-                                <Link href={item.link} target="_blank" rel="noopener noreferrer">
+                                <Link
+                                    href={item.link}
+                                    aria-label={`Ver detalles de ${item.title}`}
+                                    className="focus:outline-none focus:ring-2 focus:ring-base-content/50 focus:ring-offset-2 rounded flex-shrink-0"
+                                >
                                     <svg
                                         focusable="false"
                                         preserveAspectRatio="xMidYMid meet"
@@ -43,10 +50,10 @@ export default function ProjectsList() {
                                     </svg>
                                 </Link>
                             </div>
-                            <p className="text-base-content/80 text-sm sm:text-base">
+                            <p className="text-base-content/80 text-sm sm:text-base pr-16 sm:pr-0">
                                 {item.description}
                             </p>
-                            <div className="flex items-center flex-wrap gap-2 mt-1">
+                            <div className="flex items-center flex-wrap gap-2 mt-1 pr-16 sm:pr-0">
                                 {item.tags.map((tag, idx) => (
                                     <span
                                         key={idx}
@@ -56,13 +63,14 @@ export default function ProjectsList() {
                                     </span>
                                 ))}
                             </div>
-                            <div className="absolute bottom-4 right-4 flex gap-3">
+                            <div className="absolute bottom-4 right-4 flex gap-2">
                                 {item.websiteUrl && (
                                     <a
                                         href={item.websiteUrl || "#"}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-base-content/80 hover:text-base-content transition-colors"
+                                        aria-label={`Visit ${item.title} website`}
+                                        className="text-base-content/80 hover:text-base-content transition-colors focus:outline-none focus:ring-2 focus:ring-base-content/50 focus:ring-offset-2 rounded p-1"
                                     >
                                         <Globe size={24} />
                                     </a>
@@ -72,7 +80,8 @@ export default function ProjectsList() {
                                         href={item.githubLink}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-base-content/80 hover:text-base-content transition-colors"
+                                        aria-label={`View ${item.title} source code on GitHub`}
+                                        className="text-base-content/80 hover:text-base-content transition-colors focus:outline-none focus:ring-2 focus:ring-base-content/50 focus:ring-offset-2 rounded p-1"
                                     >
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"

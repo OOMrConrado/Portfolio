@@ -1,30 +1,35 @@
 import { socials } from "@/data/data";
 import { about } from "@/data/data";
 
+// Toggle para mostrar/ocultar imagen de perfil
+const SHOW_PROFILE_IMAGE = false; // Cambiar a true para mostrar la imagen
+
 export default function Profile() {
     return (
         <>
-            <div className="flex items-start justify-between gap-4">
-                <div className="flex-1">
-                    <div className="flex gap-[5px] items-center">
-                        <h1 className="text-2xl font-semibold">{about.name}</h1>
+            <div className="flex items-start justify-between gap-3 sm:gap-4">
+                <div className="flex-1 min-w-0">
+                    <div className="flex gap-[5px] items-center flex-wrap">
+                        <h1 className="text-xl sm:text-2xl font-semibold break-words">{about.name}</h1>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            height="24px"
+                            height="20px"
                             viewBox="0 -960 960 960"
-                            width="24px"
+                            width="20px"
                             fill="currentColor"
+                            className="sm:h-[24px] sm:w-[24px] flex-shrink-0"
                         >
                             <path d="m344-60-76-128-144-32 14-148-98-112 98-112-14-148 144-32 76-128 136 58 136-58 76 128 144 32-14 148 98 112-98 112 14 148-144 32-76 128-136-58-136 58Zm94-278 226-226-56-58-170 170-86-84-56 56 142 142Z" />
                         </svg>
                     </div>
-                    <div className="mt-1.5 flex items-center gap-1">
-                        <p className="text-lg text-base-content/60">{about.role} // </p>
-                        <p className="underline cursor-pointer text-base-content/90">
+                    <div className="mt-1.5 flex items-center gap-1 flex-wrap">
+                        <p className="text-base sm:text-lg text-base-content/60 whitespace-nowrap">{about.role}</p>
+                        <span className="text-base sm:text-lg text-base-content/60">//</span>
+                        <p className="underline cursor-pointer text-base-content/90 text-sm sm:text-base whitespace-nowrap">
                             Available
                         </p>
                     </div>
-                    <div className="flex items-center mt-3 gap-5 sm:gap-3">
+                    <div className="flex items-center mt-3 gap-3 sm:gap-4">
                         <a href={socials.linkedin}>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -107,12 +112,13 @@ export default function Profile() {
                         </a>
                     </div>
                 </div>
-                <img
-                    src="https://i.pinimg.com/736x/1f/ae/8a/1fae8adcc74dd616ed0db25836224c5c.jpg"
-                    className="w-[100px] h-[100px] rounded-[50%] object-cover object-center flex-shrink-0"
-                    style={{ marginTop: '0px', marginRight: '20px' }}
-                    alt={`${about.name}'s profile`}
-                />
+                {SHOW_PROFILE_IMAGE && (
+                    <img
+                        src="https://i.pinimg.com/736x/1f/ae/8a/1fae8adcc74dd616ed0db25836224c5c.jpg"
+                        className="w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] rounded-[50%] object-cover object-center flex-shrink-0"
+                        alt={`${about.name}'s profile`}
+                    />
+                )}
             </div>
         </>
     );
