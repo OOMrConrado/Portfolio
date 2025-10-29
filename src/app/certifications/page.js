@@ -1,8 +1,8 @@
 "use client";
 import { certifications } from "../../data/data";
 import { useState } from "react";
-import { Palette, Code2, Globe, GraduationCap, Link } from "lucide-react";
-import NextLink from "next/link";
+import { Palette, Code2, Globe, GraduationCap, Link as LinkIcon, ArrowLeft } from "lucide-react";
+import Link from "next/link";
 
 // Icon component
 function CertIcon({ type }) {
@@ -70,7 +70,7 @@ function CertificationCard({ item, onClick }) {
                             rel="noopener noreferrer"
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
-                            <Link size={14} strokeWidth={2} />
+                            <LinkIcon size={14} strokeWidth={2} />
                             Verify
                         </a>
                     )}
@@ -129,44 +129,35 @@ function CertModal({ cert, onClose }) {
     );
 }
 
-export default function Certifications() {
+export default function CertificationsPage() {
     const [selectedCert, setSelectedCert] = useState(null);
 
-    // Don't show section if there are no certifications
-    if (!certifications || certifications.length === 0) {
-        return null;
-    }
-
-    // Show only first 4 certifications on home page
-    const displayedCerts = certifications.slice(0, 4);
-    const hasMore = certifications.length > 4;
-
     return (
-        <>
-            <div className="mt-10 scroll-mt-14" id="certifications">
-                <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl font-medium before:content-['>'] before:mr-1">Certifications</h2>
-                    {hasMore && (
-                        <NextLink
-                            href="/certifications"
-                            className="text-sm text-base-content/70 hover:text-base-content hover:underline transition-colors flex items-center gap-1"
-                        >
-                            See All ({certifications.length})
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                                <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-                            </svg>
-                        </NextLink>
-                    )}
-                </div>
-                <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {displayedCerts.map((item, index) => (
-                        <CertificationCard
-                            key={index}
-                            item={item}
-                            onClick={setSelectedCert}
-                        />
-                    ))}
-                </div>
+        <main className="mt-5 p-4 max-w-7xl mx-auto">
+            {/* Header with back button */}
+            <div className="mb-8">
+                <Link
+                    href="/"
+                    className="inline-flex items-center gap-2 text-base-content/70 hover:text-base-content transition-colors mb-4"
+                >
+                    <ArrowLeft size={20} />
+                    Back to Home
+                </Link>
+                <h1 className="text-3xl font-bold before:content-['>'] before:mr-2">All Certifications</h1>
+                <p className="text-base-content/70 mt-2">
+                    Complete list of my professional certifications and courses
+                </p>
+            </div>
+
+            {/* All certifications grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {certifications.map((item, index) => (
+                    <CertificationCard
+                        key={index}
+                        item={item}
+                        onClick={setSelectedCert}
+                    />
+                ))}
             </div>
 
             {/* Modal */}
@@ -176,6 +167,6 @@ export default function Certifications() {
                     onClose={() => setSelectedCert(null)}
                 />
             )}
-        </>
+        </main>
     );
 }

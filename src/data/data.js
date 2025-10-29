@@ -60,30 +60,39 @@ export const projects = {
         {
             title: "PyCraft | Creador y Gestor de servidores Minecraft, simple e intuitivo.",
             description:
-                "Aplicación de escritorio que simplifica la creación de servidores de Minecraft, permitiéndote descargar, configurar y lanzar servidores vanilla o modificados automáticamente. Con soporte para Forge, Fabric y búsqueda integrada de modpacks de Modrinth. (Aplicación Windows - código disponible en GitHub)",
+                "Herramienta que simplifica la creación de servidores de Minecraft, permitiéndote descargar, configurar y lanzar servidores vanilla o modificados automáticamente. Con soporte para Forge, Fabric y búsqueda integrada de modpacks de Modrinth. (Aplicación Escritorio - código disponible en GitHub)",
             tags: ["Python", "CustomTkinter", "Threading", "Requests", "GUI"],
-            link: "https://github.com/OOMrConrado/PyCraft",
+            link: "/blogs/pycraft-minecraft-server-manager",
             githubLink: "https://github.com/OOMrConrado/PyCraft",
-            websiteUrl: "https://github.com/OOMrConrado/PyCraft",
-            image: "/images/pycraft.png",
+            websiteUrl: null,
+            image: "/blog/PyCraft/preview.png",
         },
         {
             title: "OpusAudit | Herramienta de análisis de audios de WhatsApp",
             description:
-                "Herramienta de seguridad que analiza audios de WhatsApp en dispositivos Android, extrayéndolos mediante ADB y procesándolos con IA para identificar información sensible —como contraseñas o datos bancarios— y prevenir riesgos de ciberseguridad. (Herramienta de línea de comandos - código en GitHub)",
-            tags: ["Python", "Ciberseguridad", "WhatsApp", "ADB", "IA"],
-            link: "https://github.com/OOMrConrado/OpusAudit",
+                "Aplicación de escritorio que analiza audios de WhatsApp en dispositivos Android, extrayéndolos mediante ADB y procesándolos con IA para identificar información sensible como contraseñas o datos bancarios. Interfaz gráfica bilingüe con análisis en tiempo real usando Whisper AI para prevenir riesgos de ciberseguridad. (Aplicación Desktop - código en GitHub)",
+            tags: ["Python", "PyQt5", "Ciberseguridad", "Whisper AI"],
+            link: "/blogs/opusaudit-whatsapp-audio-analyzer",
             githubLink: "https://github.com/OOMrConrado/OpusAudit",
-            image: "/images/opusaudit.png",
+            image: "/blog/OpusAudit/preview.png",
         },
         {
             title: "EdgeVoice | API de texto a voz compatible con OpenAI",
             description:
                 "API REST de texto a voz compatible con el formato de OpenAI que utiliza el servicio TTS de Microsoft Edge. Soporta múltiples formatos de audio (MP3, Opus, AAC, FLAC), control de velocidad de reproducción y streaming mediante Server-Sent Events. (API auto-hospedable - instrucciones en GitHub)",
             tags: ["Python", "Text-to-Speech", "Streaming", "OpenAI", "API"],
-            link: "https://github.com/OOMrConrado/EdgeVoice",
+            link: "/blogs/edgevoice-text-to-speech-api",
             githubLink: "https://github.com/OOMrConrado/EdgeVoice",
-            image: "/images/edgevoice.png",
+            image: "/blog/EdgeVoice/preview.png",
+        },
+        {
+            title: "ArchSetup System Monitor | Monitor de sistema personalizado para Arch Linux",
+            description:
+                "Escrito en C para Arch Linux con interfaz colorida en terminal. Muestra información de CPU (modelo, núcleos, uso y temperatura), memoria RAM/SWAP, uptime, disco y procesos principales. Incluye modo watch con actualizaciones continuas y opciones modulares para personalizar la información mostrada. (Herramienta CLI - código en GitHub)",
+            tags: ["C", "Linux", "Sistemas", "CLI"],
+            link: "/blogs/archsetup-system-monitor",
+            githubLink: "https://github.com/OOMrConrado/ArchSetup",
+            image: "/blog/ArchSetup/preview.png",
         },
     ],
     otherProjects: [],
@@ -127,14 +136,7 @@ export const education = [
 ];
 
 export const certifications = [
-    {
-        title: "Jornada UNSTA Emprende 2025",
-        issuer: "Universidad del Norte Santo Tomás de Aquino",
-        date: "Octubre 2025",
-        description: "Certificado de asistencia en jornadas de emprendimiento y vinculación con el medio",
-        icon: "university",
-        image: "/images/cert-unsta-emprende.webp"
-    },
+    // Hard Skills (Technical)
     {
         title: "Google UX Design Professional Certificate",
         issuer: "Google (Coursera)",
@@ -143,7 +145,7 @@ export const certifications = [
         link: "https://coursera.org/verify/professional-cert/D21AK808AH5R",
         description: "Certificación profesional en diseño UX/UI, prototipado en Figma, investigación de usuarios y testing",
         icon: "palette",
-        image: "/images/cert-google-ux.pdf"
+        image: "/Certs/cert-google-ux.pdf"
     },
     {
         title: "Foundational C# with Microsoft",
@@ -152,7 +154,7 @@ export const certifications = [
         link: "https://freecodecamp.org/certification/Conrado_117/foundational-c-sharp-with-microsoft",
         description: "Certificación de desarrollador en fundamentos de C# avalada por Microsoft",
         icon: "code",
-        image: "/images/cert-csharp-microsoft.pdf"
+        image: "/Certs/cert-csharp-microsoft.pdf"
     },
     {
         title: "Desarrollo Web",
@@ -160,42 +162,87 @@ export const certifications = [
         date: "Julio 2023",
         description: "Curso de desarrollo web del programa federal del Ministerio de Educación",
         icon: "globe",
-        image: "/images/cert-desarrollo-web.pdf"
+        image: "/Certs/cert-desarrollo-web.pdf"
     },
+    // Soft Skills
+    {
+        title: "Jornada UNSTA Emprende 2025",
+        issuer: "Universidad del Norte Santo Tomás de Aquino",
+        date: "Octubre 2025",
+        description: "Certificado de asistencia en jornadas de emprendimiento y vinculación con el medio",
+        icon: "university",
+        image: "/Certs/cert-unsta-emprende.webp"
+    },
+    {
+        title: "Gestión Efectiva de Proyectos y Equipos",
+        issuer: "Santander Open Academy",
+        date: "Octubre 2025",
+        description: "Certificación en gestión de proyectos y liderazgo de equipos de trabajo",
+        icon: "university",
+        image: "/Certs/cert-santander-Gestión Efectiva de proyectos y equipos.pdf"
+    },
+    {
+        title: "Pensamiento Crítico y Resolución de Problemas",
+        issuer: "Santander Open Academy",
+        date: "Octubre 2025",
+        description: "Certificación en habilidades de pensamiento crítico y técnicas de resolución de problemas",
+        icon: "university",
+        image: "/Certs/cert-santander-Pensamiento critico y resolución de problemas.pdf"
+    },
+    {
+        title: "Pensamiento Estratégico y Mentalidad Estratégica",
+        issuer: "Santander Open Academy",
+        date: "Octubre 2025",
+        description: "Certificación en desarrollo de pensamiento estratégico y planificación a largo plazo",
+        icon: "university",
+        image: "/Certs/cert-santander-Pensamiento estratégico y mentalidad estratégica.pdf"
+    },
+
 ];
 
 export const blogs = [
     {
-        slug: "qa-testing-proyectos-agiles",
-        title: "QA Testing en Proyectos Ágiles: Mejores Prácticas",
-        excerpt: "Descubre cómo integrar Quality Assurance en metodologías ágiles como Scrum para garantizar entregas de calidad sin sacrificar velocidad.",
-        date: "2025-01-20",
+        slug: "pycraft-minecraft-server-manager",
+        title: "PyCraft: Creador y Gestor de Servidores Minecraft",
+        excerpt: "Aplicación de escritorio que simplifica la creación de servidores de Minecraft con soporte para Forge, Fabric y búsqueda integrada de modpacks de Modrinth.",
+        date: "2025-11-10",
+        readTime: "5 min",
+        author: "Conrado Gómez",
+        category: "Proyectos",
+        tags: ["Python", "CustomTkinter", "Gaming", "Desktop App"],
+        featured: true,
+    },
+    {
+        slug: "opusaudit-whatsapp-audio-analyzer",
+        title: "OpusAudit: Herramienta de Análisis de Audios de WhatsApp",
+        excerpt: "Aplicación de escritorio que analiza audios de WhatsApp usando IA para identificar información sensible y prevenir riesgos de ciberseguridad.",
+        date: "2025-09-02",
         readTime: "6 min",
         author: "Conrado Gómez",
-        category: "QA",
-        tags: ["Testing", "Scrum", "Calidad", "Ágil"],
+        category: "Proyectos",
+        tags: ["Python", "PyQt5", "Ciberseguridad", "Whisper AI"],
         featured: true,
     },
     {
-        slug: "automatizacion-jira-workflows",
-        title: "Automatización de Workflows en Jira: Casos de Uso Prácticos",
-        excerpt: "Aprende a configurar automatizaciones en Jira para optimizar tu flujo de trabajo y reducir tareas repetitivas en equipos de desarrollo.",
-        date: "2025-01-15",
-        readTime: "8 min",
+        slug: "edgevoice-text-to-speech-api",
+        title: "EdgeVoice: API de Texto a Voz Compatible con OpenAI",
+        excerpt: "API REST de texto a voz que utiliza Microsoft Edge TTS con soporte para múltiples formatos de audio y streaming en tiempo real.",
+        date: "2024-10-20",
+        readTime: "5 min",
         author: "Conrado Gómez",
-        category: "Herramientas",
-        tags: ["Jira", "Automatización", "Scrum", "Productividad"],
+        category: "Proyectos",
+        tags: ["Python", "API", "Text-to-Speech", "OpenAI"],
         featured: true,
     },
     {
-        slug: "scrum-desarrollo-software-calidad",
-        title: "Scrum y Desarrollo de Software: Integrando Calidad desde el Sprint 0",
-        excerpt: "Estrategias para incorporar prácticas de QA y testing desde el inicio del proyecto usando el framework Scrum.",
-        date: "2025-01-10",
-        readTime: "7 min",
+        slug: "archsetup-system-monitor",
+        title: "ArchSetup System Monitor: Monitor de Sistema para Arch Linux",
+        excerpt: "Monitor de sistema escrito en C para Arch Linux con interfaz colorida en terminal que muestra información detallada del sistema en tiempo real.",
+        date: "2025-09-20",
+        readTime: "5 min",
         author: "Conrado Gómez",
-        category: "Metodologías",
-        tags: ["Scrum", "QA", "Sprint Planning", "Testing"],
+        category: "Proyectos",
+        tags: ["C", "Linux", "Sistemas", "CLI"],
         featured: false,
     },
 ];
