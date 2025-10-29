@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import { seo } from "@/data/data";
 import Footer from "./components/Footer";
 import { Analytics } from "@vercel/analytics/next";
+import { Providers } from "./providers";
 
 export const metadata = {
     title: `${seo.title}`,
@@ -28,11 +29,13 @@ export default function RootLayout({ children }) {
                 ></link>
             </head>
             <body className={`antialiased overflow-auto`}>
-                <div className="w-[100%] md:w-[700px] m-auto">
-                    <Navbar />
-                    {children}
-                    <Footer />
-                </div>
+                <Providers>
+                    <div className="w-[100%] md:w-[700px] m-auto">
+                        <Navbar />
+                        {children}
+                        <Footer />
+                    </div>
+                </Providers>
                 <Analytics />
             </body>
         </html>
