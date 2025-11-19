@@ -2,6 +2,17 @@
 import { about, socials } from "../../data/data";
 import { useTranslation } from "../../hooks/useTranslation";
 
+/**
+ * Render the About section with translated text, a contextual "CoderLux" link when present, and contact links.
+ *
+ * The component uses translation keys from `t.about` for the title, description, contact prompt, email label, connector text,
+ * and closing sentence. If the description contains the substring "CoderLux", that substring is replaced with an anchor
+ * pointing to `about.coderluxUrl` (opens in a new tab with `noopener noreferrer`). The contact line includes a `mailto:`
+ * link using `about.email` and an external LinkedIn link using `socials.linkedin` (also opens in a new tab with
+ * `noopener noreferrer`).
+ *
+ * @returns {JSX.Element} The rendered About section containing translated paragraphs and external/contact links.
+ */
 export default function About() {
     const { t } = useTranslation();
 

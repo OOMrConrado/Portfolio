@@ -4,7 +4,11 @@ import { about } from "@/data/data";
 import { useTranslation } from "../../hooks/useTranslation";
 
 // Toggle para mostrar/ocultar imagen de perfil
-const SHOW_PROFILE_IMAGE = false; // Cambiar a true para mostrar la imagen
+const SHOW_PROFILE_IMAGE = false; /**
+ * Render a profile header showing the person's name, role, availability and social links.
+ *
+ * @returns {JSX.Element} A JSX element containing the profile header layout, including name, role, availability text, social link icons, and an optional profile image controlled by the component's configuration.
+ */
 
 export default function Profile() {
     const { t } = useTranslation();

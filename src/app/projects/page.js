@@ -4,6 +4,13 @@ import Link from "next/link";
 import { Globe, ArrowLeft } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
 
+/**
+ * Renders the Projects page containing navigation and a list of pinned projects with action links.
+ *
+ * Displays a back-to-home link, a heading, and a list of project cards (title, description, tags)
+ * each optionally exposing external website and GitHub links.
+ * @returns {JSX.Element} The rendered Projects page element.
+ */
 function Projects() {
     const { t } = useTranslation();
 

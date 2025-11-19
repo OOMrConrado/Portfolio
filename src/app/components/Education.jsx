@@ -1,6 +1,23 @@
 "use client";
 import { useTranslation } from "../../hooks/useTranslation";
 
+/**
+ * Render an education item card with optional status badge, description, and a translated highlights section.
+ *
+ * @param {Object} props
+ * @param {Object} props.item - Education item data.
+ * @param {string} props.item.degree - Degree or qualification title.
+ * @param {string} props.item.institution - Institution name.
+ * @param {string} props.item.date - Date or date range for the item.
+ * @param {string} [props.item.description] - Optional descriptive text for the item.
+ * @param {string[]} [props.item.highlights] - Optional list of highlight strings.
+ * @param {string} [props.item.status] - Optional status label (e.g., "In progress", "Completed").
+ * @param {Object} props.t - Translation object containing localized labels and data.
+ * @param {Object} props.t.education - Education-related translations and data.
+ * @param {string} props.t.education.highlights - Label to display for the highlights section.
+ * @param {Object[]} [props.t.data?.education] - (Not used by this component directly) Translated education items array.
+ * @returns {JSX.Element} The rendered education item element.
+ */
 function EducationItem({ item, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-6 hover:scale-102 transition-transform duration-200">
@@ -73,6 +90,10 @@ function EducationItem({ item, t }) {
     );
 }
 
+/**
+ * Render the education section populated from the current translation data.
+ * @returns {JSX.Element} A React element containing the education section and a list of localized education items.
+ */
 export default function Education() {
     const { t } = useTranslation();
 

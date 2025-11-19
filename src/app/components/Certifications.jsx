@@ -4,7 +4,13 @@ import { Palette, Code2, Globe, GraduationCap, Link } from "lucide-react";
 import NextLink from "next/link";
 import { useTranslation } from "../../hooks/useTranslation";
 
-// Icon component
+/**
+ * Selects an icon component that represents the given certificate type.
+ *
+ * @param {Object} props
+ * @param {string} props.type - The icon key to render: "palette", "code", "globe", or "university".
+ * @returns {JSX.Element} A React element for the matching icon; defaults to the `palette` icon if `type` is unrecognized.
+ */
 function CertIcon({ type }) {
     const iconProps = { size: 24, strokeWidth: 2 };
 
@@ -18,6 +24,13 @@ function CertIcon({ type }) {
     return icons[type] || icons.palette;
 }
 
+/**
+ * Renders a styled certification card showing title, issuer, date, optional description and credential ID, and actions to view or verify the certificate.
+ * @param {Object} props.item - Certification data. Expected fields: `title`, `issuer`, `date`, `icon`, and optional `image`, `link`, `description`, `credentialId`.
+ * @param {Function} props.onClick - Handler invoked with the `item` when the "view certificate" button is clicked.
+ * @param {Object} props.t - Translation object with `certifications.viewCertificate` and `certifications.verify` strings.
+ * @returns {JSX.Element} The rendered certification card.
+ */
 function CertificationCard({ item, onClick, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-5 hover:scale-102 transition-transform duration-200 overflow-hidden flex flex-col h-full">
@@ -129,6 +142,13 @@ function CertModal({ cert, onClose }) {
     );
 }
 
+/**
+ * Render the certifications section showing up to four certificates with controls to view details.
+ *
+ * Renders a header with a localized title and a "see all" link when more than four items exist, a responsive grid of up to four CertificationCard components, and a modal viewer for a selected certificate. If there are no certifications, nothing is rendered.
+ *
+ * @returns {JSX.Element|null} The rendered certifications section as a React element, or `null` if no certifications are available.
+ */
 export default function Certifications() {
     const [selectedCert, setSelectedCert] = useState(null);
     const { t } = useTranslation();

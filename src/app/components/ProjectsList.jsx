@@ -3,6 +3,15 @@ import Link from "next/link";
 import { Globe } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
 
+/**
+ * Render the "Projects" section showing up to three pinned project cards.
+ *
+ * Content and project data are sourced from the translation object returned by useTranslation (t),
+ * specifically t.data.projects.pinProjects. Each card displays a title, description, tags,
+ * and optional external links (website and GitHub).
+ *
+ * @returns The Projects section element containing the header, a "See all" link, and up to three project cards with their links and metadata.
+ */
 export default function ProjectsList() {
     const { t } = useTranslation();
 

@@ -4,7 +4,11 @@ import { Palette, Code2, Globe, GraduationCap, Link as LinkIcon, ArrowLeft } fro
 import Link from "next/link";
 import { useTranslation } from "../../hooks/useTranslation";
 
-// Icon component
+/**
+ * Provides the icon component corresponding to a certificate type.
+ * @param {string} type - Icon key identifying which icon to render. Accepted values: `"palette"`, `"code"`, `"globe"`, `"university"`. If the value is unrecognized, the palette icon is used.
+ * @returns {JSX.Element} The icon element for the specified type; falls back to the palette icon if the type is unrecognized.
+ */
 function CertIcon({ type }) {
     const iconProps = { size: 24, strokeWidth: 2 };
 
@@ -18,6 +22,14 @@ function CertIcon({ type }) {
     return icons[type] || icons.palette;
 }
 
+/**
+ * Render a certification card displaying a certificate's metadata, optional description/ID, and action links.
+ *
+ * @param {Object} item - Certification data with properties: `title`, `issuer`, `date`, `icon`, and optional `description`, `credentialId`, `image`, `link`.
+ * @param {Function} onClick - Callback invoked with the `item` when the "view certificate" button is clicked.
+ * @param {Object} t - Translation object providing `t.certifications.viewCertificate` and `t.certifications.verify` labels.
+ * @returns {JSX.Element} The rendered certification card element.
+ */
 function CertificationCard({ item, onClick, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-5 hover:scale-102 transition-transform duration-200 overflow-hidden flex flex-col h-full">
@@ -129,6 +141,12 @@ function CertModal({ cert, onClose }) {
     );
 }
 
+/**
+ * Render the certifications page showing a localized list of certificates and a viewer modal.
+ *
+ * Renders a header with a back link and localized titles, a grid of certificates sourced from the translation data, and a modal to view a selected certificate.
+ * @returns {JSX.Element} The page's root JSX element.
+ */
 export default function CertificationsPage() {
     const [selectedCert, setSelectedCert] = useState(null);
     const { t } = useTranslation();

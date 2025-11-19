@@ -2,6 +2,13 @@
 import { useState } from "react";
 import { useTranslation } from "../../hooks/useTranslation";
 
+/**
+ * Render a timeline list item representing a single experience entry.
+ *
+ * @param {{ title: string, date: string, description?: string, achievements?: string[], techStack?: string[] }} item - Experience data to render. `description`, `achievements`, and `techStack` are optional. When `techStack` contains more than six items, a toggle is shown to reveal the full list.
+ * @param {object} t - Translation object (used for localized text and content).
+ * @returns {JSX.Element} The rendered experience list item.
+ */
 function ExperienceItem({ item, t }) {
     const [showAllTech, setShowAllTech] = useState(false);
     const visibleTech = showAllTech ? item.techStack : item.techStack?.slice(0, 6);
@@ -61,6 +68,14 @@ function ExperienceItem({ item, t }) {
     );
 }
 
+/**
+ * Render the experience timeline section using translated content.
+ *
+ * Renders a section with an accessible heading and a vertical timeline list of experience items sourced from the translation object.
+ * Each experience entry is rendered with the ExperienceItem component and receives the translation object for localized content.
+ *
+ * @returns {JSX.Element} A React element representing the experience section.
+ */
 export default function Experience() {
     const { t } = useTranslation();
 
