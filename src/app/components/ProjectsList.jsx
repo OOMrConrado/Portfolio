@@ -1,5 +1,4 @@
 "use client";
-import { projects } from "@/data/data";
 import Link from "next/link";
 import { Globe } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
@@ -18,7 +17,7 @@ export default function ProjectsList() {
                 </Link>
             </div>
             <div className="flex flex-col gap-2">
-                {projects.pinProjects.slice(0, 3).map((item, index) => (
+                {t.data.projects.pinProjects.slice(0, 3).map((item, index) => (
                     <div
                         key={index}
                         className="group relative p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"

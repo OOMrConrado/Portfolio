@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { projects } from "@/data/data";
 import Link from "next/link";
 import { Globe, ArrowLeft } from "lucide-react";
 import { useTranslation } from "../../hooks/useTranslation";
@@ -22,7 +21,7 @@ function Projects() {
                     {t.projects.allProjects}
                 </h1>
                 <div className="flex flex-col gap-2">
-                    {projects.pinProjects.map((item, index) => (
+                    {t.data.projects.pinProjects.map((item, index) => (
                         <div
                             key={index}
                             className="group relative p-4 border-2 border-base-content/20 hover:border-base-content/80 rounded-2xl hover:scale-102 transition-transform duration-200"
