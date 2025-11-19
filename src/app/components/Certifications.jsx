@@ -1,5 +1,4 @@
 "use client";
-import { certifications } from "../../data/data";
 import { useState } from "react";
 import { Palette, Code2, Globe, GraduationCap, Link } from "lucide-react";
 import NextLink from "next/link";
@@ -19,7 +18,7 @@ function CertIcon({ type }) {
     return icons[type] || icons.palette;
 }
 
-function CertificationCard({ item, onClick }) {
+function CertificationCard({ item, onClick, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-5 hover:scale-102 transition-transform duration-200 overflow-hidden flex flex-col h-full">
             {/* Icon in card corner */}
@@ -60,7 +59,7 @@ function CertificationCard({ item, onClick }) {
                             onClick={() => onClick(item)}
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
-                            View Certificate ↗
+                            {t.certifications.viewCertificate} ↗
                         </button>
                     )}
 
@@ -72,7 +71,7 @@ function CertificationCard({ item, onClick }) {
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
                             <Link size={14} strokeWidth={2} />
-                            Verify
+                            {t.certifications.verify}
                         </a>
                     )}
                 </div>
@@ -133,6 +132,7 @@ function CertModal({ cert, onClose }) {
 export default function Certifications() {
     const [selectedCert, setSelectedCert] = useState(null);
     const { t } = useTranslation();
+    const certifications = t.data.certifications;
 
     // Don't show section if there are no certifications
     if (!certifications || certifications.length === 0) {
@@ -166,6 +166,7 @@ export default function Certifications() {
                             key={index}
                             item={item}
                             onClick={setSelectedCert}
+                            t={t}
                         />
                     ))}
                 </div>

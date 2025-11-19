@@ -1,5 +1,4 @@
 "use client";
-import { certifications } from "../../data/data";
 import { useState } from "react";
 import { Palette, Code2, Globe, GraduationCap, Link as LinkIcon, ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -19,7 +18,7 @@ function CertIcon({ type }) {
     return icons[type] || icons.palette;
 }
 
-function CertificationCard({ item, onClick }) {
+function CertificationCard({ item, onClick, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-5 hover:scale-102 transition-transform duration-200 overflow-hidden flex flex-col h-full">
             {/* Icon in card corner */}
@@ -60,7 +59,7 @@ function CertificationCard({ item, onClick }) {
                             onClick={() => onClick(item)}
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
-                            View Certificate ↗
+                            {t.certifications.viewCertificate} ↗
                         </button>
                     )}
 
@@ -72,7 +71,7 @@ function CertificationCard({ item, onClick }) {
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
                             <LinkIcon size={14} strokeWidth={2} />
-                            Verify
+                            {t.certifications.verify}
                         </a>
                     )}
                 </div>
@@ -153,11 +152,12 @@ export default function CertificationsPage() {
 
             {/* All certifications grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {certifications.map((item, index) => (
+                {t.data.certifications.map((item, index) => (
                     <CertificationCard
                         key={index}
                         item={item}
                         onClick={setSelectedCert}
+                        t={t}
                     />
                 ))}
             </div>
