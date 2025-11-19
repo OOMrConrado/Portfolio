@@ -1,7 +1,7 @@
 "use client";
-import { education } from "../../data/data";
+import { useTranslation } from "../../hooks/useTranslation";
 
-function EducationItem({ item }) {
+function EducationItem({ item, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-6 hover:scale-102 transition-transform duration-200">
             {/* Status badge */}
@@ -52,7 +52,7 @@ function EducationItem({ item }) {
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-base-content" viewBox="0 0 20 20" fill="currentColor">
                             <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                         </svg>
-                        Key Learning Areas
+                        {t.education.highlights}
                     </h4>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {item.highlights.map((highlight, idx) => (
@@ -74,13 +74,15 @@ function EducationItem({ item }) {
 }
 
 export default function Education() {
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="mt-10 scroll-mt-14" id="education">
-                <h2 className="text-xl font-medium before:content-['>'] before:mr-1">Education</h2>
+                <h2 className="text-xl font-medium before:content-['>'] before:mr-1">{t.education.title}</h2>
                 <div className="mt-6 space-y-6">
-                    {education.map((item, index) => (
-                        <EducationItem key={index} item={item} />
+                    {t.data.education.map((item, index) => (
+                        <EducationItem key={index} item={item} t={t} />
                     ))}
                 </div>
             </div>

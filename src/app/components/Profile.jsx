@@ -1,10 +1,14 @@
+"use client";
 import { socials } from "@/data/data";
 import { about } from "@/data/data";
+import { useTranslation } from "../../hooks/useTranslation";
 
 // Toggle para mostrar/ocultar imagen de perfil
 const SHOW_PROFILE_IMAGE = false; // Cambiar a true para mostrar la imagen
 
 export default function Profile() {
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="flex items-start justify-between gap-3 sm:gap-4">
@@ -23,10 +27,10 @@ export default function Profile() {
                         </svg>
                     </div>
                     <div className="mt-1.5 flex items-center gap-1 flex-wrap">
-                        <p className="text-base sm:text-lg text-base-content/60 whitespace-nowrap">{about.role}</p>
+                        <p className="text-base sm:text-lg text-base-content/60 whitespace-nowrap">{t.profile.role}</p>
                         <span className="text-base sm:text-lg text-base-content/60">//</span>
                         <p className="underline cursor-pointer text-base-content/90 text-sm sm:text-base whitespace-nowrap">
-                            Available
+                            {t.profile.available}
                         </p>
                     </div>
                     <div className="flex items-center mt-3 gap-3 sm:gap-4">

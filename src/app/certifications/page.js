@@ -1,8 +1,8 @@
 "use client";
-import { certifications } from "../../data/data";
 import { useState } from "react";
 import { Palette, Code2, Globe, GraduationCap, Link as LinkIcon, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { useTranslation } from "../../hooks/useTranslation";
 
 // Icon component
 function CertIcon({ type }) {
@@ -18,7 +18,7 @@ function CertIcon({ type }) {
     return icons[type] || icons.palette;
 }
 
-function CertificationCard({ item, onClick }) {
+function CertificationCard({ item, onClick, t }) {
     return (
         <div className="group relative rounded-2xl border-2 border-base-content/20 hover:border-base-content/80 bg-gradient-to-br from-base-100 to-base-200/50 p-5 hover:scale-102 transition-transform duration-200 overflow-hidden flex flex-col h-full">
             {/* Icon in card corner */}
@@ -59,7 +59,7 @@ function CertificationCard({ item, onClick }) {
                             onClick={() => onClick(item)}
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
-                            View Certificate ↗
+                            {t.certifications.viewCertificate} ↗
                         </button>
                     )}
 
@@ -71,7 +71,7 @@ function CertificationCard({ item, onClick }) {
                             className="text-sm text-base-content/80 hover:text-base-content hover:underline transition-all flex items-center gap-1.5"
                         >
                             <LinkIcon size={14} strokeWidth={2} />
-                            Verify
+                            {t.certifications.verify}
                         </a>
                     )}
                 </div>
@@ -131,6 +131,7 @@ function CertModal({ cert, onClose }) {
 
 export default function CertificationsPage() {
     const [selectedCert, setSelectedCert] = useState(null);
+    const { t } = useTranslation();
 
     return (
         <main className="mt-5 p-4 max-w-7xl mx-auto">
@@ -141,21 +142,22 @@ export default function CertificationsPage() {
                     className="inline-flex items-center gap-2 text-base-content/70 hover:text-base-content transition-colors mb-4"
                 >
                     <ArrowLeft size={20} />
-                    Back to Home
+                    {t.certifications.backToHome}
                 </Link>
-                <h1 className="text-3xl font-bold before:content-['>'] before:mr-2">All Certifications</h1>
+                <h1 className="text-3xl font-bold before:content-['>'] before:mr-2">{t.certifications.allCertifications}</h1>
                 <p className="text-base-content/70 mt-2">
-                    Complete list of my professional certifications and courses
+                    {t.certifications.completeList}
                 </p>
             </div>
 
             {/* All certifications grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {certifications.map((item, index) => (
+                {t.data.certifications.map((item, index) => (
                     <CertificationCard
                         key={index}
                         item={item}
                         onClick={setSelectedCert}
+                        t={t}
                     />
                 ))}
             </div>
