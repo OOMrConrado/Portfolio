@@ -49,7 +49,7 @@ npm run build
 
 The portfolio uses a clean separation between translatable content and global data:
 
-```
+```text
 src/
 ├── data/
 │   └── data.js          → Global data (no translation needed)
