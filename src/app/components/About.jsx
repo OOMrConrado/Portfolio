@@ -1,9 +1,13 @@
+"use client";
 import { about, socials } from "../../data/data";
+import { useTranslation } from "../../hooks/useTranslation";
 
 export default function About() {
+    const { t } = useTranslation();
+
     // Function to convert text with CoderLux into a link element
     const renderAboutText = () => {
-        const text = about.about;
+        const text = t.about.description;
         const coderLuxIndex = text.indexOf("CoderLux");
 
         if (coderLuxIndex === -1) return text;
@@ -28,21 +32,21 @@ export default function About() {
         <>
             <div className="flex flex-col gap-2 mt-10 scroll-mt-14" id="about">
                 <h2 className="text-xl font-medium before:content-['>'] before:mr-1">
-                    About
+                    {t.about.title}
                 </h2>
                 <div className="flex gap-6 flex-col">
                     <p className="text-base text-base-content/80">
                         {renderAboutText()}
                     </p>
                     <p className="text-base text-base-content/80">
-                        ¿Tienes alguna pregunta o quieres colaborar? Contáctame por{" "}
+                        {t.about.contactQuestion}{" "}
                         <a
                             href={`mailto:${about.email}`}
                             className="font-bold underline hover:text-blue-400 transition-colors cursor-pointer"
                         >
-                            email
+                            {t.about.email}
                         </a>
-                        {" "}o{" "}
+                        {" "}{t.about.or}{" "}
                         <a
                             href={socials.linkedin}
                             target="_blank"
@@ -51,7 +55,7 @@ export default function About() {
                         >
                             LinkedIn
                         </a>
-                        . Siempre estoy abierto a nuevas oportunidades.
+                        {t.about.alwaysOpen}
                     </p>
                 </div>
             </div>

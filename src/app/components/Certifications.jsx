@@ -3,6 +3,7 @@ import { certifications } from "../../data/data";
 import { useState } from "react";
 import { Palette, Code2, Globe, GraduationCap, Link } from "lucide-react";
 import NextLink from "next/link";
+import { useTranslation } from "../../hooks/useTranslation";
 
 // Icon component
 function CertIcon({ type }) {
@@ -131,6 +132,7 @@ function CertModal({ cert, onClose }) {
 
 export default function Certifications() {
     const [selectedCert, setSelectedCert] = useState(null);
+    const { t } = useTranslation();
 
     // Don't show section if there are no certifications
     if (!certifications || certifications.length === 0) {
@@ -145,13 +147,13 @@ export default function Certifications() {
         <>
             <div className="mt-10 scroll-mt-14" id="certifications">
                 <div className="flex items-center justify-between mb-6">
-                    <h2 className="text-xl font-medium before:content-['>'] before:mr-1">Certifications</h2>
+                    <h2 className="text-xl font-medium before:content-['>'] before:mr-1">{t.certifications.title}</h2>
                     {hasMore && (
                         <NextLink
                             href="/certifications"
                             className="text-sm text-base-content/70 hover:text-base-content hover:underline transition-colors flex items-center gap-1"
                         >
-                            See All ({certifications.length})
+                            {t.certifications.seeAll} ({certifications.length})
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
                                 <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
                             </svg>

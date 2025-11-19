@@ -1,5 +1,6 @@
 "use client";
 import { education } from "../../data/data";
+import { useTranslation } from "../../hooks/useTranslation";
 
 function EducationItem({ item }) {
     return (
@@ -74,10 +75,12 @@ function EducationItem({ item }) {
 }
 
 export default function Education() {
+    const { t } = useTranslation();
+
     return (
         <>
             <div className="mt-10 scroll-mt-14" id="education">
-                <h2 className="text-xl font-medium before:content-['>'] before:mr-1">Education</h2>
+                <h2 className="text-xl font-medium before:content-['>'] before:mr-1">{t.education.title}</h2>
                 <div className="mt-6 space-y-6">
                     {education.map((item, index) => (
                         <EducationItem key={index} item={item} />

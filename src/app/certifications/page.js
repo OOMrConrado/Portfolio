@@ -3,6 +3,7 @@ import { certifications } from "../../data/data";
 import { useState } from "react";
 import { Palette, Code2, Globe, GraduationCap, Link as LinkIcon, ArrowLeft } from "lucide-react";
 import Link from "next/link";
+import { useTranslation } from "../../hooks/useTranslation";
 
 // Icon component
 function CertIcon({ type }) {
@@ -131,6 +132,7 @@ function CertModal({ cert, onClose }) {
 
 export default function CertificationsPage() {
     const [selectedCert, setSelectedCert] = useState(null);
+    const { t } = useTranslation();
 
     return (
         <main className="mt-5 p-4 max-w-7xl mx-auto">
@@ -141,11 +143,11 @@ export default function CertificationsPage() {
                     className="inline-flex items-center gap-2 text-base-content/70 hover:text-base-content transition-colors mb-4"
                 >
                     <ArrowLeft size={20} />
-                    Back to Home
+                    {t.certifications.backToHome}
                 </Link>
-                <h1 className="text-3xl font-bold before:content-['>'] before:mr-2">All Certifications</h1>
+                <h1 className="text-3xl font-bold before:content-['>'] before:mr-2">{t.certifications.allCertifications}</h1>
                 <p className="text-base-content/70 mt-2">
-                    Complete list of my professional certifications and courses
+                    {t.certifications.completeList}
                 </p>
             </div>
 
