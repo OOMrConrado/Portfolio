@@ -6,6 +6,28 @@ export default function ArchSetupSystemMonitor() {
             </p>
 
             <h2 className="text-2xl font-bold mt-8 mb-4 text-base-content">
+                Capturas de Pantalla
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 my-6">
+                <div className="bg-base-200 p-4 rounded-lg border border-base-content/10">
+                    <img
+                        src="/blog/ArchSetup/Interface.webp"
+                        alt="Monitor de sistema en acción"
+                        className="w-full h-auto rounded-lg"
+                    />
+                    <p className="text-sm text-center mt-2 text-base-content/70">Monitor de sistema en acción</p>
+                </div>
+                <div className="bg-base-200 p-4 rounded-lg border border-base-content/10">
+                    <img
+                        src="/blog/ArchSetup/Help-Interface.webp"
+                        alt="Vista detallada de procesos"
+                        className="w-full h-auto rounded-lg"
+                    />
+                    <p className="text-sm text-center mt-2 text-base-content/70">Vista detallada de procesos</p>
+                </div>
+            </div>
+
+            <h2 className="text-2xl font-bold mt-8 mb-4 text-base-content">
                 Características Principales
             </h2>
 
