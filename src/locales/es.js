@@ -31,6 +31,9 @@ export const es = {
         techStack: "Stack Tecnológico",
         cofounder: "Co-Fundador",
     },
+    techStack: {
+        title: "Tecnologías que Uso",
+    },
     education: {
         title: "Educación",
         status: "Estado",
