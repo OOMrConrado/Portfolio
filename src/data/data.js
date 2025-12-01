@@ -15,30 +15,22 @@ export const forms = {
 }
 
 export const skills = [
-    { name: "Python", devicon: "devicon-python-original" },
-    { name: "JavaScript", devicon: "devicon-javascript-plain colored" },
     { name: "TypeScript", devicon: "devicon-typescript-plain colored" },
-    { name: "C", devicon: "devicon-c-plain colored" },
-    { name: "C#", devicon: "devicon-csharp-original" },
+    { name: "JavaScript", devicon: "devicon-javascript-plain colored" },
     { name: "HTML", devicon: "devicon-html5-plain colored" },
     { name: "CSS", devicon: "devicon-css3-plain colored" },
     { name: "React", devicon: "devicon-react-original colored" },
     { name: "Next.js", devicon: "devicon-nextjs-plain" },
     { name: "Flask", devicon: "devicon-flask-original" },
-    { name: "Vite", devicon: "devicon-vitejs-original" },
-    { name: "Tailwind CSS", devicon: "devicon-tailwindcss-original colored" },
+    { name: "Python", devicon: "devicon-python-original" },
+    { name: "Git", devicon: "devicon-git-plain colored" },
+    { name: "Postman", devicon: "devicon-postman-plain colored" },
     { name: "MySQL", devicon: "devicon-mysql-plain colored" },
     { name: "MongoDB", devicon: "devicon-mongodb-plain colored" },
     { name: "Firebase", devicon: "devicon-firebase-plain colored" },
     { name: "Supabase", devicon: "devicon-supabase-plain colored" },
     { name: "Docker", devicon: "devicon-docker-plain colored" },
-    { name: "Git", devicon: "devicon-git-plain colored" },
-    { name: "npm", devicon: "devicon-npm-original-wordmark colored" },
-    { name: "Postman", devicon: "devicon-postman-plain colored" },
-    { name: "Vercel", devicon: "devicon-vercel-plain" },
-    { name: "Netlify", devicon: "devicon-netlify-plain colored" },
-    { name: "Jira", devicon: "devicon-jira-plain colored" },
-    { name: "Linux", devicon: "devicon-linux-original" },
+    { name: "Tailwind CSS", devicon: "devicon-tailwindcss-original colored" },
 ];
 
 export const socials = {

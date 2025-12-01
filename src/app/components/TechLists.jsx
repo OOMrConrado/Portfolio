@@ -1,7 +1,10 @@
+"use client";
 import Marquee from "./Marquee";
 import { skills } from "@/data/data";
+import { useTranslation } from "../../hooks/useTranslation";
 
 export default function TechLists() {
+    const { t } = useTranslation();
     // Split skills into 2 rows
     const midPoint = Math.ceil(skills.length / 2);
     const firstRow = skills.slice(0, midPoint);
@@ -34,7 +37,7 @@ export default function TechLists() {
 
     return (
         <div className="mt-10">
-            <h2 className="text-xl font-medium before:content-['>'] before:mr-1">Tech Stack</h2>
+            <h2 className="text-xl font-medium before:content-['>'] before:mr-1">{t.techStack.title}</h2>
             <div className="flex flex-col gap-4 mt-4">
                 {/* First row */}
                 <Marquee duration="30s">
