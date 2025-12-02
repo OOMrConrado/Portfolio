@@ -6,14 +6,14 @@ import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./providers";
 
 export const metadata = {
-    metadataBase: new URL('https://heyconrado.com'),
+    metadataBase: new URL('https://heyconrado.dev'),
     title: {
         default: `${seo.title}`,
         template: `%s | ${seo.title}`,
     },
     description: `${seo.description}`,
     keywords: `${seo.keywords}`,
-    authors: [{ name: "Conrado Gómez", url: "https://heyconrado.com" }],
+    authors: [{ name: "Conrado Gómez", url: "https://heyconrado.dev" }],
     creator: "Conrado Gómez",
     publisher: "Conrado Gómez",
     robots: {
@@ -39,7 +39,7 @@ export const metadata = {
     openGraph: {
         type: 'website',
         locale: 'es_AR',
-        url: 'https://heyconrado.com',
+        url: 'https://heyconrado.dev',
         siteName: 'Conrado Gómez',
         title: `${seo.title}`,
         description: `${seo.description}`,

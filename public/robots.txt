@@ -1,10 +1,10 @@
-# robots.txt para heyconrado.com
+# robots.txt para heyconrado.dev
 
 User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://heyconrado.com/sitemap.xml
+Sitemap: https://heyconrado.dev/sitemap.xml
 
 # Disallow crawling of API routes (si las tienes)
 User-agent: *
