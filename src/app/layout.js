@@ -6,11 +6,65 @@ import { Analytics } from "@vercel/analytics/next";
 import { Providers } from "./providers";
 
 export const metadata = {
-    title: `${seo.title}`,
+    metadataBase: new URL('https://heyconrado.com'),
+    title: {
+        default: `${seo.title}`,
+        template: `%s | ${seo.title}`,
+    },
     description: `${seo.description}`,
     keywords: `${seo.keywords}`,
+    authors: [{ name: "Conrado Gómez", url: "https://heyconrado.com" }],
+    creator: "Conrado Gómez",
+    publisher: "Conrado Gómez",
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
     icons: {
-        icon: { url: "/images/CG.png", sizes: "512x512", type: "image/png" },
+        icon: [
+            { url: "/images/CG.png", sizes: "32x32", type: "image/png" },
+            { url: "/images/CG.png", sizes: "192x192", type: "image/png" },
+            { url: "/images/CG.png", sizes: "512x512", type: "image/png" },
+        ],
+        apple: { url: "/images/CG.png", sizes: "180x180", type: "image/png" },
+    },
+    manifest: "/manifest.json",
+    openGraph: {
+        type: 'website',
+        locale: 'es_AR',
+        url: 'https://heyconrado.com',
+        siteName: 'Conrado Gómez',
+        title: `${seo.title}`,
+        description: `${seo.description}`,
+        images: [
+            {
+                url: '/images/CG.png',
+                width: 512,
+                height: 512,
+                alt: 'Conrado Gómez Logo',
+            },
+        ],
+    },
+    twitter: {
+        card: 'summary',
+        title: `${seo.title}`,
+        description: `${seo.description}`,
+        images: ['/images/CG.png'],
+    },
+    viewport: {
+        width: 'device-width',
+        initialScale: 1,
+        maximumScale: 5,
+    },
+    verification: {
+        google: 'google61825a7e4761c799',
     },
 };
 

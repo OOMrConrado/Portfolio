@@ -1,0 +1,23 @@
+{
+  "name": "Conrado Gómez - Full Stack Developer",
+  "short_name": "heyconrado",
+  "description": "Portfolio de Conrado Gómez, Full Stack Developer especializado en desarrollo web",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "/images/CG.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/CG.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+# robots.txt para heyconrado.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://heyconrado.com/sitemap.xml
+
+# Disallow crawling of API routes (si las tienes)
+User-agent: *
+Disallow: /api/
+
+# Crawl-delay para bots menos importantes
+User-agent: *
+Crawl-delay: 1
