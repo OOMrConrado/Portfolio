@@ -13,9 +13,9 @@ export default function Home() {
                 <main className="mt-5 p-4">
                     <Profile />
                     <About />
+                    <Experience />
                     <ProjectsList />
                     <TechLists />
-                    <Experience />
                     <Education />
                     <Certifications />
                 </main>

@@ -31,6 +31,9 @@ export const en = {
         techStack: "Tech Stack",
         cofounder: "Co-Founder",
     },
+    techStack: {
+        title: "Tech I Work With",
+    },
     education: {
         title: "Education",
         status: "Status",
